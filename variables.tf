@@ -57,12 +57,12 @@ variable "docker_registry_password" {
   default     = "Welcome@1234"
 
 }
-variable "vnet_route_all_enabled" {
-  type        = bool
-  description = "Vnet route."
+variable "virtual_network_subnet_id" {
+  type = string
+  description = "vnet link" 
 }
 
-variable "virtual_network_subnet_id" {
-  type        = string
-  description = "Vnet route."
+variable "vnet_route_all_enabled" {
+  type = bool
+  description = "enable all outbound"
 }
