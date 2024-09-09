@@ -4,13 +4,13 @@ resource "azurerm_linux_web_app" "example" {
   resource_group_name = var.resource_group_name
   location            = var.location
   service_plan_id     = var.service_plan_id
+  https_only = var.https_only
   virtual_network_subnet_id = var.virtual_network_subnet_id
-
 
   site_config {
     ftps_state       = var.ftps_state
-    app_command_line = var.app_command_line
     vnet_route_all_enabled = var.vnet_route_all_enabled
+    app_command_line = var.app_command_line
     dynamic "application_stack" {
       for_each = var.current_stack == "docker" ? [1] : []
       content {
@@ -27,15 +27,16 @@ resource "azurerm_linux_web_app" "example" {
       }
     }
     dynamic "application_stack" {
-      for_each = var.current_stack == "go" ? [1] : []
+      for_each = var.current_stack == "dotnetcore" ? [1] : []
       content {
-        go_version = var.stack_version
+        dotnet_core_version = var.stack_version
       }
     }
     dynamic "application_stack" {
       for_each = var.current_stack == "java" ? [1] : []
       content {
-        java_version = var.stack_version
+        java_version                 = var.stack_version
+
       }
     }
     dynamic "application_stack" {
@@ -53,9 +54,19 @@ resource "azurerm_linux_web_app" "example" {
     dynamic "application_stack" {
       for_each = var.current_stack == "python" ? [1] : []
       content {
-        python_version = var.stack_version
+        python = var.python
       }
     }
+  virtual_application {
+    preload = true
+    physical_path = var.physical_path
+    virtual_path = var.virtual_path
+  }
+  virtual_application {
+    preload = true
+    physical_path = var.physical_path1
+    virtual_path = var.virtual_path1
+  }
   }
 
 }
