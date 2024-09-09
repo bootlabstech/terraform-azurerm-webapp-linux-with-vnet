@@ -76,26 +76,7 @@ variable "vnet_route_all_enabled" {
   type = bool
   description = "enable all outbound"
 }
-variable "physical_path" {
-    type =  string
-    description = "value"
-  
-}
-variable "virtual_path" {
-    type = string
-    description = "value"
-  
-}
-variable "physical_path1" {
-    type =  string
-    description = "value"
-  
-}
-variable "virtual_path1" {
-    type = string
-    description = "value"
-  
-}
+
 
 
 variable "docker_registry_url" {
