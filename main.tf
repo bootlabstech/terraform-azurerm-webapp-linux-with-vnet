@@ -27,22 +27,18 @@ resource "azurerm_linux_web_app" "example" {
       }
     }
     dynamic "application_stack" {
-      for_each = var.current_stack == "dotnetcore" ? [1] : []
+      for_each = var.current_stack == "node" ? [1] : []
       content {
-        dotnet_core_version = var.stack_version
+        node_version = var.stack_version
       }
     }
     dynamic "application_stack" {
       for_each = var.current_stack == "java" ? [1] : []
       content {
         java_version                 = var.stack_version
+        java_server_version  = var.java_server_version
+        java_server = var.java_server
 
-      }
-    }
-    dynamic "application_stack" {
-      for_each = var.current_stack == "node" ? [1] : []
-      content {
-        node_version = var.stack_version
       }
     }
     dynamic "application_stack" {
@@ -54,7 +50,13 @@ resource "azurerm_linux_web_app" "example" {
     dynamic "application_stack" {
       for_each = var.current_stack == "python" ? [1] : []
       content {
-        python = var.python
+        python_version = var.stack_version
+      }
+    }
+    dynamic "application_stack" {
+      for_each = var.current_stack == "ruby" ? [1] : []
+      content {
+        ruby_version = var.stack_version
       }
     }
   }

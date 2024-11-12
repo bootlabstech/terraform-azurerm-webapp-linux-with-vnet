@@ -58,16 +58,16 @@ variable "stack_version" {
 #   default     = "Welcome@1234"
 
 # }
-variable "java_embedded_server_enabled" {
+variable "java_server" {
   type        = string
   description = "value"
-  default     = ""
+  default     = "JAVA"
 
 }
-variable "tomcat_version" {
+variable "java_server_version" {
   type        = string
   description = "value"
-  default     = ""
+  default     = "java_server"
 
 }
 
