@@ -7,6 +7,14 @@ resource "azurerm_linux_web_app" "example" {
   https_only = var.https_only
   virtual_network_subnet_id = var.virtual_network_subnet_id
 
+  lifecycle {
+    ignore_changes = [
+      app_settings,
+      logs,
+      sticky_settings,
+    ]
+  }
+
   site_config {
     ftps_state       = var.ftps_state
     vnet_route_all_enabled = var.vnet_route_all_enabled
