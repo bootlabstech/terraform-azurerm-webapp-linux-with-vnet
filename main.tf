@@ -12,6 +12,7 @@ resource "azurerm_linux_web_app" "example" {
       app_settings,
       logs,
       sticky_settings,
+      site_config[0].ip_restriction
     ]
   }
 
