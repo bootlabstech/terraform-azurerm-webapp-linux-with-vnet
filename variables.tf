@@ -58,17 +58,17 @@ variable "vnet_route_all_enabled" {
   description = "enable all outbound"
 }
 
-variable "cors_allowed_origins" {
-  type        = list(string)
-  default     = ["*"]  # Modify as per your security policy
-  description = "List of allowed origins for CORS"
-}
+# variable "cors_allowed_origins" {
+#   type        = list(string)
+#   default     = ["*"]  # Modify as per your security policy
+#   description = "List of allowed origins for CORS"
+# }
 
-variable "cors_support_credentials" {
-  type        = bool
-  default     = false
-  description = "Whether to support credentials in CORS requests."
-}
+# variable "cors_support_credentials" {
+#   type        = bool
+#   default     = false
+#   description = "Whether to support credentials in CORS requests."
+# }
 
 variable "docker_registry_url" {
   type        = string

@@ -20,10 +20,10 @@ resource "azurerm_linux_web_app" "example" {
   site_config {
     ftps_state       = var.ftps_state
     vnet_route_all_enabled = var.vnet_route_all_enabled
-    cors {
-      allowed_origins     = var.cors_allowed_origins
-      support_credentials = var.cors_support_credentials
-    }
+    # cors {
+    #   allowed_origins     = var.cors_allowed_origins
+    #   support_credentials = var.cors_support_credentials
+    # }
     ip_restriction {
        action     = "Allow" 
               headers    = [] 
