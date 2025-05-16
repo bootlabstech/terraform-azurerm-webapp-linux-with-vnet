@@ -40,24 +40,6 @@ variable "stack_version" {
   description = "Version of the selected stack."
 
 }
-
-# variable "docker_registry_url" {
-#   type        = string
-#   description = "The URL of the container registry where the docker_image_name is located. e.g. https://index.docker.io or https://mcr.microsoft.com. This value is required with docker_image_name."
-#   default     = "https://mcr.microsoft.com"
-# }
-# variable "docker_registry_username" {
-#   type        = string
-#   description = "The User Name to use for authentication against the registry to pull the image."
-#   default     = "admin"
-
-# }
-# variable "docker_registry_password" {
-#   type        = string
-#   description = "The User Name to use for authentication against the registry to pull the image."
-#   default     = "Welcome@1234"
-
-# }
 variable "java_server" {
   type        = string
   description = "value"
@@ -71,13 +53,22 @@ variable "java_server_version" {
 
 }
 
-
 variable "vnet_route_all_enabled" {
   type = bool
   description = "enable all outbound"
 }
 
+variable "cors_allowed_origins" {
+  type        = list(string)
+  default     = ["*"]  # Modify as per your security policy
+  description = "List of allowed origins for CORS"
+}
 
+variable "cors_support_credentials" {
+  type        = bool
+  default     = false
+  description = "Whether to support credentials in CORS requests."
+}
 
 variable "docker_registry_url" {
   type        = string
