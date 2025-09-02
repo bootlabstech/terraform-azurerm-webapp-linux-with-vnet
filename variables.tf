@@ -91,3 +91,8 @@ variable "virtual_network_subnet_id" {
   type = string
   description = "vnet link" 
 }
+variable "ip_restriction_default_action" {
+  type = string
+  default = "Deny"
+  
+}

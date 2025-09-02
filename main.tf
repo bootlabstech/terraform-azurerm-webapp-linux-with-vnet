@@ -25,6 +25,7 @@ resource "azurerm_linux_web_app" "example" {
   }
 
   site_config {
+    ip_restriction_default_action = var.ip_restriction_default_action
     ftps_state       = var.ftps_state
     vnet_route_all_enabled = var.vnet_route_all_enabled
 
