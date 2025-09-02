@@ -12,14 +12,7 @@ resource "azurerm_linux_web_app" "example" {
       app_settings,
       logs,
       sticky_settings,
-      site_config[0].ip_restriction,
-      site_config[0].application_stack[0].node_version,
-      site_config[0].application_stack[0].docker,
-      site_config[0].application_stack[0].dotnet,
-      site_config[0].application_stack[0].python,
-      site_config[0].application_stack[0].php,
-      site_config[0].application_stack[0].java,
-      site_config[0].application_stack[0].ruby,
+      site_config,
       identity
     ]
   }
